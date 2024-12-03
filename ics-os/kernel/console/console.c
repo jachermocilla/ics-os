@@ -651,7 +651,15 @@ int console_execute(const char *str){
       u=strtok(0,"\n");
       if (u!=0)              
          printf("%s\n",u);
-   }else  
+   }else
+   if (strcmp(u,"add") == 0){ //-- Adds two integers. Args: <num1> <num2>
+   int a, b;
+   u = strtok(0," ");
+   a = atoi(u);
+   u = strtok(0," ");
+   b = atoi(u);
+   printf("%d + %d = %d\n",a,b,a+b);
+   }else
    if (strcmp(u,"use") == 0){          //-- Tells the extension manager to use the extension: Args: <extension>  
       u=strtok(0," ");
       if (extension_override(devmgr_getdevicebyname(u),0) == -1){
